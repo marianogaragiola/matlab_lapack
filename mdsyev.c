@@ -22,7 +22,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 	plhs[1] = mxCreateDoubleMatrix(lwork, 1, mxREAL);
 	WORK = mxGetPr(plhs[1]);
 
-	/* Llamo a la funcion dsyev */
+	/* Calling lapack function */
 	dsyev(JOBZ, UPLO, &n, A, &lda, W, WORK, &lwork, &info);
 
 }
