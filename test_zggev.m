@@ -9,4 +9,6 @@ B = complex(eye(3), zeros(3));
 
 [v1, e1] = eig(A, B);
 
-[alpha, beta] = mzggev(A, B);
+[alpha, beta, v2] = mzggev(A, B);
+
+e2 = alpha./beta;

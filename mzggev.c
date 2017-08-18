@@ -9,6 +9,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 	double *alpha, *beta;
 	double *alphar, *alphai, *betar, *betai;
 	double *vr, *vl;
+	double *vrr, *vri;
 	double *work, *rwork;
 	size_t n, lda, ldb;
 	size_t i, j;
@@ -58,11 +59,12 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 	ldvl = 1; /* leading dimension for the left eigenvectors */
 	ldvr = n; /* leading dimension for the right eigenvectors */
 
-	plhs[2] = mxCreateDoubleMatrix(2*n*ldvl, 1, mxREAL);
-	vl = mxGetPr(plhs[2]);
+	vl = (double *) mxMalloc(2*ldvl*n*sizeof(double));
+	vr = (double *) mxMalloc(2*ldvr*n*sizeof(double));
 
-	plhs[3] = mxCreateDoubleMatrix(2*n*ldvr, 1, mxREAL);
-	vr = mxGetPr(plhs[3]);
+	plhs[2] = mxCreateDoubleMatrix(ldvr, n, mxCOMPLEX);
+	vrr = mxGetPr(plhs[2]);
+	vri = mxGetPi(plhs[2]);
 
 	lwork = 2*n;
 	work = (double *) mxMalloc(2*lwork*sizeof(double));
@@ -78,6 +80,13 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 		alphai[i] = alpha[2*i+1];
 		betar[i]  = beta[2*i];
 		betai[i]  = beta[2*i+i];
+	}
+
+	for(i = 0; i < ldvr; i++){
+		for(j = 0; j < n; j++){
+			vrr[i*n+j] = vr[2*(i*n+j)];
+			vri[i*n+j] = vr[2*(i*n+j)+1];
+		}
 	}
 
 	return;
