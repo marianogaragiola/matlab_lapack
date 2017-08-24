@@ -1,3 +1,13 @@
+/******************************************************************                       
+* Matlab mex function to solve the eigenvalue problem
+*      A*x = (lambda)*x
+* with A a real simmetric matrix using the function dsyev of lapack.
+*
+* For a correct use of the function first compile using mex compiler
+* from Matlab with the command
+*
+* >> mex -v mdsyev.c -lmwlapack
+*******************************************************************/
 
 #include "mex.h"
 #include "lapack.h"

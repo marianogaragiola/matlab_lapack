@@ -1,4 +1,14 @@
-
+/******************************************************************
+* Matlab mex function to solve the generalized eigenvalue problem
+*      A*x = (lambda)*B*x
+* with A a general complex matrix and B a definite positive complex 
+* matrix using the function zggev of lapack.
+* 
+* For a correct use of the function first compile using mex compiler 
+* from Matlab with the command
+* 
+* >> mex -v mzggev.c -lmwlapack
+*******************************************************************/
 #include <stdlib.h>
 #include "mex.h"
 #include "lapack.h"

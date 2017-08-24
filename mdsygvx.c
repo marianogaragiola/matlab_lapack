@@ -1,4 +1,14 @@
-
+/*********************************************************************
+* Matlab mex function to solve the generalized eigenvalue problem 
+*      A*x = (lambda)*B*x
+* with A and B are real simetric matrix and B is also a positive 
+* definite.
+* 
+* For a correct use of the function first compile using mex compiler 
+* from matlab with the command
+* 
+* mex -v mdsygvx.m -lmwlapack
+* **********************************************************************\
 #include <stdlib.h>
 #include "mex.h"
 #include "lapack.h"
