@@ -58,8 +58,8 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 	ifail = (size_t *) mxMalloc(n*sizeof(size_t));
 
 	/* Calling lapack function */
-  dsygvx(&itype, jobz, range, uplo, &n, A, &lda, B, &ldb,
+	dsygvx(&itype, jobz, range, uplo, &n, A, &lda, B, &ldb,
 	vl, vu, &il, &iu, &abstol, &m, w, Z, &ldz, work, &lwork,
-  iwork, ifail, &info);
+	iwork, ifail, &info);
 
 }

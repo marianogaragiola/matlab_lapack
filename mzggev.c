@@ -33,7 +33,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 	/* Real and imaginary part of the second input */
 	Br = mxGetPr(prhs[1]);
 	Bi = mxGetPi(prhs[1]);
-  /* dimensions of the matrices */
+	/* dimensions of the matrices */
 	n = mxGetN(prhs[0]);
 	lda = n; ldb = n;
 
