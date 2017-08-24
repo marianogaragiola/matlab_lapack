@@ -64,7 +64,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 	alphar = mxGetPr(plhs[0]);
 	alphai = mxGetPi(plhs[0]);
 	betar  = mxGetPr(plhs[1]);
-	betai  = mxGetPr(plhs[1]);
+	betai  = mxGetPi(plhs[1]);
 
 	ldvl = 1; /* leading dimension for the left eigenvectors */
 	ldvr = n; /* leading dimension for the right eigenvectors */
